@@ -1,9 +1,8 @@
 locals {
-  name = "example-${lower(var.environment)}"
+  name = "${lower(var.environment)}-${var.project}"
 
   tags = {
     name        = local.name
     environment = var.environment
-    GitRepo     = "https://github.com/aws-samples/aws-terraform-template"
   }
 }

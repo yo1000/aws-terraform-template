@@ -6,6 +6,6 @@ provider "aws" {
   }
 }
 
-terraform {
-  cloud {}
-}
+# terraform {
+#   cloud {}
+# }

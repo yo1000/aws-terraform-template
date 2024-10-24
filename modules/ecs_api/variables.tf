@@ -1,50 +1,18 @@
 # General settings
-variable "project" {
-  type = string
-}
-
 variable "region" {
-  description = "Region where to deploy the resources"
-  type        = string
-}
-
-variable "environment" {
-  type        = string
-  description = "The environment where to deploy the solution"
+  type = string
 }
 
 variable "vpc_id" {
   type = string
 }
 
-variable "subnet_pub_ids" {
-  type = list(string)
-}
-
-variable "subnet_pro_ids" {
-  type = list(string)
-}
-
-variable "subnet_pri_ids" {
-  type = list(string)
-}
-
-variable "security_group_vpc_id" {
+# Container settings
+variable "container_cluster_name" {
   type = string
 }
 
-variable "security_group_http_id" {
-  type = string
-}
-
-# Database settings
-variable "db_username" {
-  type    = string
-  default = "postgres"
-}
-
-# Event streaming settings
-variable "msk_cluster_arn" {
+variable "container_cluster_id" {
   type = string
 }
 
@@ -66,6 +34,14 @@ variable "container_api_count" {
   default = 1
 }
 
+variable "container_api_envvar_value_db_endpoint" {
+  type = string
+}
+
+variable "container_api_envvar_value_db_port" {
+  type = number
+}
+
 variable "container_api_envvar_value_db_name" {
   type    = string
   default = "postgres"
@@ -74,6 +50,26 @@ variable "container_api_envvar_value_db_name" {
 variable "container_api_envvar_value_db_option" {
   type    = string
   default = ""
+}
+
+variable "container_api_envvar_from_db_username" {
+  type = string
+}
+
+variable "container_api_envvar_from_db_password" {
+  type = string
+}
+
+variable "container_api_lb_security_group_ids" {
+  type = list(string)
+}
+
+variable "container_api_lb_subnet_ids" {
+  type = list(string)
+}
+
+variable "container_api_service_subnet_ids" {
+  type = list(string)
 }
 
 variable "container_api_port" {
