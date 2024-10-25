@@ -17,9 +17,9 @@ Step3. Deploy resources.
 ```bash
 terraform init
 
-terraform plan -ver-file=./envs/${env_name}/terraform.tfvars
+terraform plan -var-file=./envs/${env_name}/terraform.tfvars
 
-terraform apply -ver-file=./envs/${env_name}/terraform.tfvars
+terraform apply -var-file=./envs/${env_name}/terraform.tfvars
 ```
 
 Step4. Upload container image to deployed ECR repositories.
@@ -39,7 +39,7 @@ Step5. Set `container_api_count` to >=1 in `envs/${env_name}/terraform.tfvars`.
 Step6. Re-deploy resources.
 
 ```bash
-terraform plan -ver-file=./envs/${env_name}/terraform.tfvars
+terraform plan -var-file=./envs/${env_name}/terraform.tfvars
 
-terraform apply -ver-file=./envs/${env_name}/terraform.tfvars
+terraform apply -var-file=./envs/${env_name}/terraform.tfvars
 ```
