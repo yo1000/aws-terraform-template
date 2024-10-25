@@ -82,3 +82,33 @@ module "ecs_api" {
   container_api_port               = var.container_api_port
   container_api_health_port        = var.container_api_health_port
 }
+
+module "ecs_consumer" {
+  source = "./modules/ecs_consumer"
+
+  # General settings
+  region = var.region
+  vpc_id = var.vpc_id
+
+  # Container settings
+  container_cluster_name = module.ecs.container_cluster_name
+  container_cluster_id   = module.ecs.container_cluster_id
+
+  # Container settings - Consumer
+  container_consumer_name                                 = var.container_consumer_name
+  container_consumer_version                              = var.container_consumer_version
+  container_consumer_exec_role_arn                        = var.container_consumer_exec_role_arn
+  container_consumer_role_arn                             = var.container_consumer_role_arn
+  container_consumer_count                                = var.container_consumer_count
+  container_consumer_envvar_value_point_api_baseurl       = var.container_consumer_envvar_value_point_api_baseurl
+  container_consumer_envvar_value_kafka_bootstrap_servers = var.container_consumer_envvar_value_kafka_bootstrap_servers
+  container_consumer_envvar_value_kafka_topic_name        = var.container_consumer_envvar_value_kafka_topic_name
+  container_consumer_envvar_value_kafka_consumer_group_id = var.container_consumer_envvar_value_kafka_consumer_group_id
+
+  container_consumer_lb_security_group_ids = [var.security_group_vpc_id, var.security_group_http_id]
+  container_consumer_lb_subnet_ids         = var.subnet_pub_ids
+
+  container_consumer_service_subnet_ids = var.subnet_pro_ids
+  container_consumer_port               = var.container_consumer_port
+  container_consumer_health_port        = var.container_consumer_health_port
+}
