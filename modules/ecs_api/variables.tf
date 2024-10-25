@@ -17,67 +17,67 @@ variable "container_cluster_id" {
 }
 
 # Container settings - API
-variable "container_api_name" {
+variable "container_name" {
   type = string
 }
 
-variable "container_api_version" {
+variable "container_version" {
   type = string
 }
 
-variable "container_api_exec_role_arn" {
+variable "container_exec_role_arn" {
   type = string
 }
 
-variable "container_api_count" {
+variable "container_count" {
   type    = string
   default = 1
 }
 
-variable "container_api_envvar_value_db_endpoint" {
+variable "container_envvar_value_db_endpoint" {
   type = string
 }
 
-variable "container_api_envvar_value_db_port" {
+variable "container_envvar_value_db_port" {
   type = number
 }
 
-variable "container_api_envvar_value_db_name" {
+variable "container_envvar_value_db_name" {
   type    = string
   default = "postgres"
 }
 
-variable "container_api_envvar_value_db_option" {
+variable "container_envvar_value_db_option" {
   type    = string
   default = ""
 }
 
-variable "container_api_envvar_from_db_username" {
+variable "container_envvar_from_db_username" {
   type = string
 }
 
-variable "container_api_envvar_from_db_password" {
+variable "container_envvar_from_db_password" {
   type = string
 }
 
-variable "container_api_lb_security_group_ids" {
+variable "container_lb_security_group_ids" {
   type = list(string)
 }
 
-variable "container_api_lb_subnet_ids" {
+variable "container_lb_subnet_ids" {
   type = list(string)
 }
 
-variable "container_api_service_subnet_ids" {
+variable "container_service_subnet_ids" {
   type = list(string)
 }
 
-variable "container_api_port" {
+variable "container_port" {
   type    = number
   default = 8080
 }
 
-variable "container_api_health_port" {
+variable "container_health_port" {
   type    = number
   default = 8080
 }

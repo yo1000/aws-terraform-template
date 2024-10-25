@@ -51,7 +51,7 @@ read AWS_STS_MFA_CODE
 AWS_STS_CRED=$(aws sts assume-role \
   --role-arn $AWS_STS_ROLE_ARN \
   --serial-number $AWS_STS_MFA_DEVICE_ARN \
-  --role-session-name "$(aws sts get-caller-identity | jq -r '.Arn' | sed -r 's/^[^/]*\///g'),$(date +%y%m%d-%H%M%S)" \
+  --role-session-name "$(aws sts get-caller-identity | jq -r '.Arn' | sed -r 's/^[^/]*\///g')" \
   --profile default \
   --token-code $AWS_STS_MFA_CODE \
   --region $AWS_STS_REGION)

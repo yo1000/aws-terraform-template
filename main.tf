@@ -64,23 +64,23 @@ module "ecs_api" {
   container_cluster_id   = module.ecs.container_cluster_id
 
   # Container settings - API
-  container_api_name                     = var.container_api_name
-  container_api_version                  = var.container_api_version
-  container_api_exec_role_arn            = var.container_api_exec_role_arn
-  container_api_count                    = var.container_api_count
-  container_api_envvar_value_db_endpoint = module.rds.db_writer_endpoint
-  container_api_envvar_value_db_port     = module.rds.db_writer_port
-  container_api_envvar_value_db_name     = var.container_api_envvar_value_db_name
-  container_api_envvar_value_db_option   = var.container_api_envvar_value_db_option
-  container_api_envvar_from_db_username  = "${module.secrets.secret_arn}:username::"
-  container_api_envvar_from_db_password  = "${module.secrets.secret_arn}:password::"
+  container_name                     = var.container_api_name
+  container_version                  = var.container_api_version
+  container_exec_role_arn            = var.container_api_exec_role_arn
+  container_count                    = var.container_api_count
+  container_envvar_value_db_endpoint = module.rds.db_writer_endpoint
+  container_envvar_value_db_port     = module.rds.db_writer_port
+  container_envvar_value_db_name     = var.container_api_envvar_value_db_name
+  container_envvar_value_db_option   = var.container_api_envvar_value_db_option
+  container_envvar_from_db_username  = "${module.secrets.secret_arn}:username::"
+  container_envvar_from_db_password  = "${module.secrets.secret_arn}:password::"
 
-  container_api_lb_security_group_ids = [var.security_group_vpc_id, var.security_group_http_id]
-  container_api_lb_subnet_ids         = var.subnet_pub_ids
+  container_lb_security_group_ids = [var.security_group_vpc_id, var.security_group_http_id]
+  container_lb_subnet_ids         = var.subnet_pub_ids
 
-  container_api_service_subnet_ids = var.subnet_pro_ids
-  container_api_port               = var.container_api_port
-  container_api_health_port        = var.container_api_health_port
+  container_service_subnet_ids = var.subnet_pro_ids
+  container_port               = var.container_api_port
+  container_health_port        = var.container_api_health_port
 }
 
 module "ecs_consumer" {
@@ -95,20 +95,20 @@ module "ecs_consumer" {
   container_cluster_id   = module.ecs.container_cluster_id
 
   # Container settings - Consumer
-  container_consumer_name                                 = var.container_consumer_name
-  container_consumer_version                              = var.container_consumer_version
-  container_consumer_exec_role_arn                        = var.container_consumer_exec_role_arn
-  container_consumer_role_arn                             = var.container_consumer_role_arn
-  container_consumer_count                                = var.container_consumer_count
-  container_consumer_envvar_value_point_api_baseurl       = var.container_consumer_envvar_value_point_api_baseurl
-  container_consumer_envvar_value_kafka_bootstrap_servers = var.container_consumer_envvar_value_kafka_bootstrap_servers
-  container_consumer_envvar_value_kafka_topic_name        = var.container_consumer_envvar_value_kafka_topic_name
-  container_consumer_envvar_value_kafka_consumer_group_id = var.container_consumer_envvar_value_kafka_consumer_group_id
+  container_name                                 = var.container_consumer_name
+  container_version                              = var.container_consumer_version
+  container_exec_role_arn                        = var.container_consumer_exec_role_arn
+  container_role_arn                             = var.container_consumer_role_arn
+  container_count                                = var.container_consumer_count
+  container_envvar_value_point_api_baseurl       = var.container_consumer_envvar_value_point_api_baseurl
+  container_envvar_value_kafka_bootstrap_servers = var.container_consumer_envvar_value_kafka_bootstrap_servers
+  container_envvar_value_kafka_topic_name        = var.container_consumer_envvar_value_kafka_topic_name
+  container_envvar_value_kafka_consumer_group_id = var.container_consumer_envvar_value_kafka_consumer_group_id
 
-  container_consumer_lb_security_group_ids = [var.security_group_vpc_id, var.security_group_http_id]
-  container_consumer_lb_subnet_ids         = var.subnet_pub_ids
+  container_lb_security_group_ids = [var.security_group_vpc_id, var.security_group_http_id]
+  container_lb_subnet_ids         = var.subnet_pub_ids
 
-  container_consumer_service_subnet_ids = var.subnet_pro_ids
-  container_consumer_port               = var.container_consumer_port
-  container_consumer_health_port        = var.container_consumer_health_port
+  container_service_subnet_ids = var.subnet_pro_ids
+  container_port               = var.container_consumer_port
+  container_health_port        = var.container_consumer_health_port
 }

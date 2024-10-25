@@ -17,61 +17,61 @@ variable "container_cluster_id" {
 }
 
 # Container settings - Consumer
-variable "container_consumer_name" {
+variable "container_name" {
   type = string
 }
 
-variable "container_consumer_version" {
+variable "container_version" {
   type = string
 }
 
-variable "container_consumer_exec_role_arn" {
+variable "container_exec_role_arn" {
   type = string
 }
 
-variable "container_consumer_role_arn" {
+variable "container_role_arn" {
   type = string
 }
 
-variable "container_consumer_count" {
+variable "container_count" {
   type    = string
   default = 1
 }
 
-variable "container_consumer_envvar_value_point_api_baseurl" {
+variable "container_envvar_value_point_api_baseurl" {
   type = string
 }
 
-variable "container_consumer_envvar_value_kafka_bootstrap_servers" {
+variable "container_envvar_value_kafka_bootstrap_servers" {
   type = string
 }
 
-variable "container_consumer_envvar_value_kafka_topic_name" {
+variable "container_envvar_value_kafka_topic_name" {
   type = string
 }
 
-variable "container_consumer_envvar_value_kafka_consumer_group_id" {
+variable "container_envvar_value_kafka_consumer_group_id" {
   type = string
 }
 
-variable "container_consumer_lb_security_group_ids" {
+variable "container_lb_security_group_ids" {
   type = list(string)
 }
 
-variable "container_consumer_lb_subnet_ids" {
+variable "container_lb_subnet_ids" {
   type = list(string)
 }
 
-variable "container_consumer_service_subnet_ids" {
+variable "container_service_subnet_ids" {
   type = list(string)
 }
 
-variable "container_consumer_port" {
+variable "container_port" {
   type    = number
   default = 8080
 }
 
-variable "container_consumer_health_port" {
+variable "container_health_port" {
   type    = number
   default = 8080
 }
