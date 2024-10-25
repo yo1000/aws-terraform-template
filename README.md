@@ -1,6 +1,12 @@
 AWS Terraform Module Template
 ================================================================================
 
+Ensure to read follows first.
+
+- (en) https://docs.aws.amazon.com/prescriptive-guidance/latest/terraform-aws-provider-best-practices/structure.html
+- (ja) https://docs.aws.amazon.com/ja_jp/prescriptive-guidance/latest/terraform-aws-provider-best-practices/structure.html
+
+
 Deployment steps
 --------------------------------------------------------------------------------
 
@@ -15,7 +21,7 @@ source ./aws_login_sts.sh
 Step3. Deploy resources.
 
 ```bash
-terraform init
+terraform terraform init -reconfigure -backend-config=./envs/${env_name}/config.s3.tfbackend
 
 terraform plan -var-file=./envs/${env_name}/terraform.tfvars
 

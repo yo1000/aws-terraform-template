@@ -6,6 +6,10 @@ provider "aws" {
   }
 }
 
-# terraform {
-#   cloud {}
-# }
+terraform {
+  backend "s3" {
+    #region = ""
+    #bucket = ""
+    #key    = ""
+  }
+}
