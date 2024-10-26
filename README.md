@@ -21,7 +21,7 @@ source ./helpers/aws_login_sts.sh
 Step3. Deploy resources.
 
 ```bash
-terraform terraform init -reconfigure -backend-config=./envs/${env_name}/config.s3.tfbackend
+terraform init -reconfigure -backend-config=./envs/${env_name}/config.s3.tfbackend
 
 terraform plan -var-file=./envs/${env_name}/terraform.tfvars
 
