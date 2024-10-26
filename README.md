@@ -12,10 +12,25 @@ Deployment steps
 
 Step1. Set `container_api_count` to 0 in `envs/${env_name}/terraform.tfvars`.
 
-Step2. Log in using awscli and assume-role as required.
+Step2. Login using awscli with MFA.
+
+`AWS_STS_PROFILE` is optional.
 
 ```bash
-source ./helpers/aws_login_sts.sh
+AWS_STS_PROFILE=${profile} \
+AWS_STS_MFA_DEVICE_ARN=${mfa_device_arn} \
+source ./helpers/aws_login_mfa.sh
+```
+
+With assume-role.
+
+`AWS_STS_PROFILE` is optional.
+
+```bash
+AWS_STS_PROFILE=${profile} \
+AWS_STS_ROLE_ARN=${assume_role_arn} \
+AWS_STS_MFA_DEVICE_ARN=${mfa_device_arn} \
+source ./helpers/aws_login_mfa_assume.sh
 ```
 
 Step3. Deploy resources.
