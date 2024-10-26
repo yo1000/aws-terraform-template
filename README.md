@@ -15,7 +15,7 @@ Step1. Set `container_api_count` to 0 in `envs/${env_name}/terraform.tfvars`.
 Step2. Log in using awscli and assume-role as required.
 
 ```bash
-source ./aws_login_sts.sh
+source ./helpers/aws_login_sts.sh
 ```
 
 Step3. Deploy resources.
