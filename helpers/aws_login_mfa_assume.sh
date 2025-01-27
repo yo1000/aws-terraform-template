@@ -55,7 +55,7 @@ function aws_login_mfa_assume() {
 
   local LOCAL_AWS_STS_PROFILE="${AWS_STS_PROFILE:-default}"
   local LOCAL_AWS_STS_ACCOUNT="$(echo "${AWS_STS_MFA_DEVICE_ARN}" | sed -r 's/^arn:aws:iam::([0-9]*).*/\1/')"
-  local LOCAL_AWS_STS_SESSION="$(aws sts get-caller-identity | jq -r '.Arn' | sed -r 's/^[^/]*\///g')"
+  local LOCAL_AWS_STS_SESSION="$(aws sts get-caller-identity | jq -r '.Arn' | sed -r 's#.*/([^/]+)$#\1#' | rev | cut -c 1-64 | rev)"
 
   AWS_STS_CRED=$(aws sts assume-role \
     --profile ${LOCAL_AWS_STS_PROFILE} \
